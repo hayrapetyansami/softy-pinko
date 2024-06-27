@@ -1,49 +1,86 @@
-from django.core.exceptions import ValidationError
 from django.db import models
 
 
-class HeaderText(models.Model):
+class HeaderText (models.Model):
     title = models.CharField(max_length=255)
-    description = models.CharField(max_length=255)
-
-    def save(self, *args, **kwargs):
-        if not self.pk and HeaderText.objects.exists():
-            raise ValidationError("Only one header text instance is allowed")
-        super().save(*args, *kwargs)
+    description = models.TextField(max_length=255)
 
     def __str__(self):
-        return f"{self.title}"
+        return self.title
 
     class Meta:
         verbose_name = "Header Text"
-        verbose_name_plural = "Header text"
+        verbose_name_plural = "Header Text"
 
 
-class SEO(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField(max_length=500)
-    keywords = models.CharField(max_length=255)
-    robots = models.CharField(max_length=255)
-    content_type = models.CharField(max_length=255)
+class FooterText(models.Model):
+    text = models.CharField(max_length=255)
 
     def __str__(self):
-        return f"{self.title}"
+        return self.text
 
     class Meta:
-        verbose_name = "seo"
-        verbose_name_plural = "seo"
+        verbose_name = "Footer Text"
+        verbose_name_plural = "Footer Text"
 
 
-class OG(models.Model):
+class TreeBlocks(models.Model):
     title = models.CharField(max_length=255)
-    description = models.TextField(max_length=500)
-    type = models.CharField(max_length=255)
-    image = models.ImageField(upload_to="og")
-    url = models.CharField(max_length=255)
+    description = models.TextField(max_length=255)
+    image = models.ImageField(upload_to="tree-blocks")
 
     def __str__(self):
-        return f"{self.title}"
+        return self.title
 
     class Meta:
-        verbose_name = "Open Graph"
-        verbose_name_plural = "Open Graphs"
+        verbose_name = "Tree Block"
+        verbose_name_plural = "Tree Blocks"
+
+
+class LeftBlock(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField(max_length=255)
+    image = models.ImageField(upload_to="left-block")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Left Block"
+        verbose_name_plural = "Left Block"
+
+
+class RightBlock(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField(max_length=255)
+    image = models.ImageField(upload_to="right-block")
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Right Block"
+        verbose_name_plural = "Right Block"
+
+
+class WorkProcessMain(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Work Process"
+        verbose_name_plural = "Work Process"
+
+
+class WorkProcessChild(models.Model):
+    parent = models.ForeignKey(
+        WorkProcessMain, related_name='children', on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    description = models.TextField(max_length=255)
+    image = models.ImageField(upload_to="work-process")
+
+    def __str__(self):
+        return self.title
