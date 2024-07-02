@@ -63,24 +63,21 @@ class RightBlock(models.Model):
         verbose_name_plural = "Right Block"
 
 
-class WorkProcessMain(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.TextField()
-
-    def __str__(self):
-        return self.title
-
-    class Meta:
-        verbose_name = "Work Process"
-        verbose_name_plural = "Work Process"
-
-
-class WorkProcessChild(models.Model):
-    parent = models.ForeignKey(
-        WorkProcessMain, related_name='children', on_delete=models.CASCADE)
+class WorkProcess(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(max_length=255)
     image = models.ImageField(upload_to="work-process")
 
     def __str__(self):
         return self.title
+
+
+class Reviews(models.Model):
+    review = models.TextField(max_length=400)
+    first_name = models.CharField(max_length=45)
+    last_name = models.CharField(max_length=45)
+    position = models.CharField(max_length=60)
+    image = models.ImageField(upload_to="reviews")
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
