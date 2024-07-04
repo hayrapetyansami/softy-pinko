@@ -10,7 +10,7 @@ class HeaderText (models.Model):
 
     class Meta:
         verbose_name = "Header Text"
-        verbose_name_plural = "Header Text"
+        verbose_name_plural = "Header Texts"
 
 
 class FooterText(models.Model):
@@ -71,6 +71,10 @@ class WorkProcess(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = "Work process"
+        verbose_name_plural = "Work process"
+
 
 class Reviews(models.Model):
     review = models.TextField(max_length=400)
@@ -81,3 +85,46 @@ class Reviews(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
+
+    class Meta:
+        verbose_name = "Review"
+        verbose_name_plural = "Reviews"
+
+
+class PricingPlan(models.Model):
+    title = models.CharField(max_length=255)
+    price = models.FloatField()
+    space = models.CharField(max_length=255)
+    transfer = models.CharField(max_length=255)
+    panel = models.CharField(max_length=255)
+    support = models.CharField(max_length=255)
+    emails = models.CharField(max_length=255)
+    security = models.CharField(max_length=255)
+
+    is_space = models.BooleanField(default=True)
+    is_transfer = models.BooleanField(default=True)
+    is_panel = models.BooleanField(default=True)
+    is_support = models.BooleanField(default=True)
+    is_emails = models.BooleanField(default=True)
+    is_security = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Pricing Plan"
+        verbose_name_plural = "Pricing Plans"
+
+
+class Counter(models.Model):
+    projects = models.IntegerField(default=0)
+    happy_clients = models.IntegerField(default=0)
+    award_wins = models.IntegerField(default=0)
+    countries = models.IntegerField(default=0)
+
+    def __str__(self):
+        return "Counter"
+
+    class Meta:
+        verbose_name = "Counter"
+        verbose_name_plural = "Counters"

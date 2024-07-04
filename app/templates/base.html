@@ -254,21 +254,50 @@
           <div class="col-lg-4 col-md-6 col-sm-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
             <div class="pricing-item">
               <div class="pricing-header">
-                <h3 class="pricing-title">Starter</h3>
+                <h3 class="pricing-title">{{pricing_plan.0.title}}</h3>
               </div>
               <div class="pricing-body">
                 <div class="price-wrapper">
                   <span class="currency">$</span>
-                  <span class="price">14.50</span>
+                  <span class="price">{{pricing_plan.0.price}}</span>
                   <span class="period">monthly</span>
                 </div>
                 <ul class="list">
-                  <li class="active">60 GB space</li>
-                  <li class="active">600 GB transfer</li>
-                  <li class="active">Pro Design Panel</li>
-                  <li>15-minute support</li>
-                  <li>Unlimited Emails</li>
-                  <li>24/7 Security</li>
+                  {% if pricing_plan.0.is_space %}
+                    <li class="active">{{pricing_plan.0.space}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.0.space}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.0.is_transfer %}
+                    <li class="active">{{pricing_plan.0.transfer}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.0.transfer}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.0.is_panel %}
+                    <li class="active">{{pricing_plan.0.panel}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.0.panel}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.0.is_support %}
+                    <li class="active">{{pricing_plan.0.support}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.0.support}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.0.is_emails %}
+                    <li class="active">{{pricing_plan.0.emails}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.0.emails}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.0.is_security %}
+                    <li class="active">{{pricing_plan.0.security}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.0.security}}</li>
+                  {% endif %}
                 </ul>
               </div>
               <div class="pricing-footer">
@@ -282,21 +311,50 @@
           <div class="col-lg-4 col-md-6 col-sm-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.4s">
             <div class="pricing-item active">
               <div class="pricing-header">
-                <h3 class="pricing-title">Premium</h3>
+                <h3 class="pricing-title">{{pricing_plan.1.title}}</h3>
               </div>
               <div class="pricing-body">
                 <div class="price-wrapper">
                   <span class="currency">$</span>
-                  <span class="price">21.50</span>
+                  <span class="price">{{pricing_plan.1.price}}</span>
                   <span class="period">monthly</span>
                 </div>
                 <ul class="list">
-                  <li class="active">120 GB space</li>
-                  <li class="active">1200 GB transfer</li>
-                  <li class="active">Pro Design Panel</li>
-                  <li class="active">15-minute support</li>
-                  <li>Unlimited Emails</li>
-                  <li>24/7 Security</li>
+                  {% if pricing_plan.1.is_space %}
+                    <li class="active">{{pricing_plan.1.space}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.1.space}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.1.is_transfer %}
+                    <li class="active">{{pricing_plan.1.transfer}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.1.transfer}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.1.is_panel %}
+                    <li class="active">{{pricing_plan.1.panel}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.1.panel}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.1.is_support %}
+                    <li class="active">{{pricing_plan.0.support}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.1.support}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.1.is_emails %}
+                    <li class="active">{{pricing_plan.1.emails}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.1.emails}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.1.is_security %}
+                    <li class="active">{{pricing_plan.1.security}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.1.security}}</li>
+                  {% endif %}
                 </ul>
               </div>
               <div class="pricing-footer">
@@ -310,21 +368,50 @@
           <div class="col-lg-4 col-md-6 col-sm-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.6s">
             <div class="pricing-item">
               <div class="pricing-header">
-                <h3 class="pricing-title">Advanced</h3>
+                <h3 class="pricing-title">{{pricing_plan.2.title}}</h3>
               </div>
               <div class="pricing-body">
                 <div class="price-wrapper">
                   <span class="currency">$</span>
-                  <span class="price">42.00</span>
+                  <span class="price">{{pricing_plan.2.price}}</span>
                   <span class="period">monthly</span>
                 </div>
                 <ul class="list">
-                  <li class="active">250 GB space</li>
-                  <li class="active">5000 GB transfer</li>
-                  <li class="active">Pro Design Panel</li>
-                  <li class="active">15-minute support</li>
-                  <li class="active">Unlimited Emails</li>
-                  <li class="active">24/7 Security</li>
+                  {% if pricing_plan.2.is_space %}
+                    <li class="active">{{pricing_plan.2.space}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.2.space}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.2.is_transfer %}
+                    <li class="active">{{pricing_plan.2.transfer}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.2.transfer}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.2.is_panel %}
+                    <li class="active">{{pricing_plan.2.panel}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.2.panel}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.2.is_support %}
+                    <li class="active">{{pricing_plan.0.support}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.2.support}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.2.is_emails %}
+                    <li class="active">{{pricing_plan.2.emails}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.2.emails}}</li>
+                  {% endif %}
+
+                  {% if pricing_plan.2.is_security %}
+                    <li class="active">{{pricing_plan.2.security}}</li>
+                  {% else %}
+                    <li>{{pricing_plan.2.security}}</li>
+                  {% endif %}
                 </ul>
               </div>
               <div class="pricing-footer">
@@ -345,25 +432,25 @@
           <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-12">
               <div class="count-item decoration-bottom">
-                <strong>126</strong>
+                <strong>{{counter.projects}}</strong>
                 <span>Projects</span>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
               <div class="count-item decoration-top">
-                <strong>63</strong>
+                <strong>{{counter.happy_clients}}</strong>
                 <span>Happy Clients</span>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
               <div class="count-item decoration-bottom">
-                <strong>18</strong>
+                <strong>{{counter.award_wins}}</strong>
                 <span>Awards Wins</span>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12">
               <div class="count-item">
-                <strong>27</strong>
+                <strong>{{counter.countries}}</strong>
                 <span>Countries</span>
               </div>
             </div>

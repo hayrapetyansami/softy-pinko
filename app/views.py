@@ -6,7 +6,9 @@ from .models import (
     LeftBlock,
     RightBlock,
     WorkProcess,
-    Reviews
+    Reviews,
+    PricingPlan,
+    Counter
 )
 
 
@@ -18,6 +20,8 @@ def index(request):
         "left_block": LeftBlock.objects.all().first(),
         "right_block": RightBlock.objects.all().first(),
         "work_process_items": WorkProcess.objects.all(),
-        "reviews": Reviews.objects.all()
+        "reviews": Reviews.objects.all(),
+        "pricing_plan": PricingPlan.objects.all(),
+        "counter": Counter.objects.all().first(),
     }
     return render(request, "base.html", context)
