@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class HeaderText (models.Model):
@@ -128,3 +129,17 @@ class Counter(models.Model):
     class Meta:
         verbose_name = "Counter"
         verbose_name_plural = "Counters"
+
+
+class Blog(models.Model):
+    image = models.ImageField(upload_to="blog")
+    title = models.CharField(max_length=60)
+    description = models.TextField()
+    created_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Blog"
+        verbose_name_plural = "Blogs"

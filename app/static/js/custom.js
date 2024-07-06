@@ -68,7 +68,6 @@
 	        var refElement = $(currLink.attr("href"));
 	        if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
 						$('.nav ul li a').removeClass("active");
-							window.location.hash = currLink.attr("href");
 	            currLink.addClass("active");
 	        }
 	        else{
@@ -128,6 +127,21 @@
 			}
 		});
 	}
+
+	$("#contact").on("submit", (e) => {
+		e.preventDefault();
+		const data = {
+			'name': $('input[name=name]').val(),
+			'email': $('input[name=email]').val(),
+			'content': $('textarea[name=content]').val(),
+			'csrfmiddlewaretoken': '{{ csrf_token }}'
+		};
+		$.post("http://127.0.0.1:8000/messages/receive_message/", data, () => {
+			console.log("all is okay");
+		});
+
+		e.target.reset();
+	});
 
 
 })(window.jQuery);

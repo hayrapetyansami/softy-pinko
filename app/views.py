@@ -8,7 +8,8 @@ from .models import (
     WorkProcess,
     Reviews,
     PricingPlan,
-    Counter
+    Counter,
+    Blog
 )
 
 
@@ -23,5 +24,18 @@ def index(request):
         "reviews": Reviews.objects.all(),
         "pricing_plan": PricingPlan.objects.all(),
         "counter": Counter.objects.all().first(),
+        "all_blogs": Blog.objects.all()
     }
-    return render(request, "base.html", context)
+    return render(request, "home.html", context)
+
+
+def single_blog(request, blog_id):
+    # id = Blog.objects.all()[blog_id].id - 1
+    blog = Blog.objects.get(id=blog_id)
+
+    print(blog)
+
+    print(id)
+    return render(request, "single_blog.html", {
+        "blog": blog
+    })

@@ -1,5 +1,4 @@
 from django.contrib import admin
-from mptt.admin import MPTTModelAdmin
 
 from .models import (
     HeaderText,
@@ -10,7 +9,8 @@ from .models import (
     WorkProcess,
     Reviews,
     PricingPlan,
-    Counter
+    Counter,
+    Blog
 )
 from .admin_hooks import (
     HeaderTextAdmin,
@@ -30,3 +30,4 @@ admin.site.register(WorkProcess)
 admin.site.register(Reviews)
 admin.site.register(PricingPlan)
 admin.site.register(Counter)
+admin.site.register(Blog)
