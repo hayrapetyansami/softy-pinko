@@ -10,7 +10,8 @@ from .models import (
     Reviews,
     PricingPlan,
     Counter,
-    Blog
+    Blog,
+    Socials
 )
 from .admin_hooks import (
     HeaderTextAdmin,
@@ -31,3 +32,4 @@ admin.site.register(Reviews)
 admin.site.register(PricingPlan)
 admin.site.register(Counter)
 admin.site.register(Blog)
+admin.site.register(Socials)

@@ -143,3 +143,16 @@ class Blog(models.Model):
     class Meta:
         verbose_name = "Blog"
         verbose_name_plural = "Blogs"
+
+
+class Socials(models.Model):
+    title = models.CharField(max_length=50)
+    url = models.URLField(max_length=255, blank=True)
+    html_class = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "Social"
+        verbose_name_plural = "Socials"

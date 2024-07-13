@@ -9,7 +9,8 @@ from .models import (
     Reviews,
     PricingPlan,
     Counter,
-    Blog
+    Blog,
+    Socials
 )
 
 
@@ -24,7 +25,8 @@ def index(request):
         "reviews": Reviews.objects.all(),
         "pricing_plan": PricingPlan.objects.all(),
         "counter": Counter.objects.all().first(),
-        "all_blogs": Blog.objects.all()
+        "all_blogs": Blog.objects.all(),
+        "socials": Socials.objects.all()
     }
     return render(request, "home.html", context)
 
